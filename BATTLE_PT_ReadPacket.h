@@ -39,7 +39,20 @@ inline VOID READ_PT_BATTLE_START_GAME_M(BYTE *buffer, S_PT_BATTLE_START_GAME_M &
 	Stream->ReadInt32(&parameter.ROOM_STATUS);
 }
 
-inline VOID READ_PT_BATTLE_ARRANGE_CARD(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD &parameter)
+inline VOID READ_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON &parameter)
+{
+	CStreamSP Stream;
+	Stream->SetBuffer(buffer);
+
+	Stream->ReadInt32(&parameter.WEAPON_TYPE);
+	Stream->ReadInt32(&parameter.COORDINATE_X);
+	Stream->ReadInt32(&parameter.COORDINATE_Y);
+	Stream->ReadFloat(&parameter.POS_X);
+	Stream->ReadFloat(&parameter.POS_Y);
+	Stream->ReadInt32(&parameter.SPEED);
+}
+
+inline VOID READ_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_SUCC_U &parameter)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
@@ -52,20 +65,7 @@ inline VOID READ_PT_BATTLE_ARRANGE_CARD(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD &
 	Stream->ReadInt32(&parameter.SPEED);
 }
 
-inline VOID READ_PT_BATTLE_ARRANGE_CARD_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD_SUCC_U &parameter)
-{
-	CStreamSP Stream;
-	Stream->SetBuffer(buffer);
-
-	Stream->ReadInt32(&parameter.CARD_TYPE);
-	Stream->ReadInt32(&parameter.COORDINATE_X);
-	Stream->ReadInt32(&parameter.COORDINATE_Y);
-	Stream->ReadFloat(&parameter.POS_X);
-	Stream->ReadFloat(&parameter.POS_Y);
-	Stream->ReadInt32(&parameter.SPEED);
-}
-
-inline VOID READ_PT_BATTLE_ARRANGE_CARD_FAIL_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD_FAIL_U &parameter)
+inline VOID READ_PT_BATTLE_ARRANGE_WEAPON_FAIL_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_FAIL_U &parameter)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);

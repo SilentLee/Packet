@@ -47,7 +47,22 @@ inline DWORD WRITE_PT_BATTLE_START_GAME_M(BYTE *buffer, S_PT_BATTLE_START_GAME_M
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD &parameter)
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON &parameter)
+{
+	CStreamSP Stream;
+	Stream->SetBuffer(buffer);
+
+	Stream->WriteInt32(parameter.WEAPON_TYPE);
+	Stream->WriteInt32(parameter.COORDINATE_X);
+	Stream->WriteInt32(parameter.COORDINATE_Y);
+	Stream->WriteFloat(parameter.POS_X);
+	Stream->WriteFloat(parameter.POS_Y);
+	Stream->WriteInt32(parameter.SPEED);
+
+	return Stream->GetLength();
+}
+
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_SUCC_U &parameter)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
@@ -62,22 +77,7 @@ inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD_SUCC_U &parameter)
-{
-	CStreamSP Stream;
-	Stream->SetBuffer(buffer);
-
-	Stream->WriteInt32(parameter.CARD_TYPE);
-	Stream->WriteInt32(parameter.COORDINATE_X);
-	Stream->WriteInt32(parameter.COORDINATE_Y);
-	Stream->WriteFloat(parameter.POS_X);
-	Stream->WriteFloat(parameter.POS_Y);
-	Stream->WriteInt32(parameter.SPEED);
-
-	return Stream->GetLength();
-}
-
-inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD_FAIL_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_CARD_FAIL_U &parameter)
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_FAIL_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_FAIL_U &parameter)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
@@ -132,7 +132,22 @@ inline DWORD WRITE_PT_BATTLE_START_GAME_M(BYTE *buffer, INT room_type, INT64 sta
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD(BYTE *buffer, INT card_type, INT coordinate_x, INT coordinate_y, FLOAT pos_x, FLOAT pos_y, INT speed)
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, INT weapon_type, INT coordinate_x, INT coordinate_y, FLOAT pos_x, FLOAT pos_y, INT speed)
+{
+	CStreamSP Stream;
+	Stream->SetBuffer(buffer);
+
+	Stream->WriteInt32(weapon_type);
+	Stream->WriteInt32(coordinate_x);
+	Stream->WriteInt32(coordinate_y);
+	Stream->WriteFloat(pos_x);
+	Stream->WriteFloat(pos_y);
+	Stream->WriteInt32(speed);
+
+	return Stream->GetLength();
+}
+
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, INT card_type, INT coordinate_x, INT coordinate_y, FLOAT pos_x, FLOAT pos_y, INT speed)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
@@ -147,22 +162,7 @@ inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD(BYTE *buffer, INT card_type, INT coord
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD_SUCC_U(BYTE *buffer, INT card_type, INT coordinate_x, INT coordinate_y, FLOAT pos_x, FLOAT pos_y, INT speed)
-{
-	CStreamSP Stream;
-	Stream->SetBuffer(buffer);
-
-	Stream->WriteInt32(card_type);
-	Stream->WriteInt32(coordinate_x);
-	Stream->WriteInt32(coordinate_y);
-	Stream->WriteFloat(pos_x);
-	Stream->WriteFloat(pos_y);
-	Stream->WriteInt32(speed);
-
-	return Stream->GetLength();
-}
-
-inline DWORD WRITE_PT_BATTLE_ARRANGE_CARD_FAIL_U(BYTE *buffer, DWORD error_code)
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_FAIL_U(BYTE *buffer, DWORD error_code)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
