@@ -57,7 +57,7 @@ inline VOID READ_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRAN
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
-	Stream->ReadInt32(&parameter.CARD_TYPE);
+	Stream->ReadInt32(&parameter.WEAPON_TYPE);
 	Stream->ReadInt32(&parameter.COORDINATE_X);
 	Stream->ReadInt32(&parameter.COORDINATE_Y);
 	Stream->ReadFloat(&parameter.POS_X);
