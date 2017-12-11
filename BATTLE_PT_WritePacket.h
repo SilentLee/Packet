@@ -62,12 +62,13 @@ inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, S_PT_BATTLE_ARRANGE_WE
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_SUCC_U &parameter)
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_SUCC_M(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_SUCC_M &parameter)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
 	Stream->WriteInt32(parameter.WEAPON_TYPE);
+	Stream->WriteInt32(parameter.WEAPON_TAG);
 	Stream->WriteInt32(parameter.COORDINATE_X);
 	Stream->WriteInt32(parameter.COORDINATE_Y);
 	Stream->WriteFloat(parameter.POS_X);
@@ -162,12 +163,13 @@ inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, INT weapon_type, INT c
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, INT weapon_type, INT coordinate_x, INT coordinate_y, FLOAT pos_x, FLOAT pos_y, INT speed)
+inline DWORD WRITE_PT_BATTLE_ARRANGE_WEAPON_SUCC_M(BYTE *buffer, INT weapon_type, INT weapon_tag, INT coordinate_x, INT coordinate_y, FLOAT pos_x, FLOAT pos_y, INT speed)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
 	Stream->WriteInt32(weapon_type);
+	Stream->WriteInt32(weapon_tag);
 	Stream->WriteInt32(coordinate_x);
 	Stream->WriteInt32(coordinate_y);
 	Stream->WriteFloat(pos_x);

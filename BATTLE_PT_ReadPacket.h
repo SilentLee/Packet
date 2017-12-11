@@ -52,12 +52,13 @@ inline VOID READ_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAP
 	Stream->ReadInt32(&parameter.SPEED);
 }
 
-inline VOID READ_PT_BATTLE_ARRANGE_WEAPON_SUCC_U(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_SUCC_U &parameter)
+inline VOID READ_PT_BATTLE_ARRANGE_WEAPON_SUCC_M(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON_SUCC_M &parameter)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
 	Stream->ReadInt32(&parameter.WEAPON_TYPE);
+	Stream->ReadInt32(&parameter.WEAPON_TAG);
 	Stream->ReadInt32(&parameter.COORDINATE_X);
 	Stream->ReadInt32(&parameter.COORDINATE_Y);
 	Stream->ReadFloat(&parameter.POS_X);
