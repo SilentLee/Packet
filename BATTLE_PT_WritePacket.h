@@ -41,10 +41,7 @@ inline DWORD WRITE_PT_BATTLE_START_GAME_M(BYTE *buffer, S_PT_BATTLE_START_GAME_M
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
-	Stream->WriteInt32(parameter.ROOM_TYPE);
-	Stream->WriteInt64(parameter.START_TIME);
 	Stream->WriteInt32(parameter.ROOM_STATUS);
-	Stream->WriteInt32(parameter.SIDE_IN_GAME);
 
 	return Stream->GetLength();
 }
@@ -141,15 +138,12 @@ inline DWORD WRITE_PT_BATTLE_SEARCH_ROOM_FAIL_U(BYTE *buffer, DWORD error_code)
 	return Stream->GetLength();
 }
 
-inline DWORD WRITE_PT_BATTLE_START_GAME_M(BYTE *buffer, INT room_type, INT64 start_time, INT room_status, INT side_in_game)
+inline DWORD WRITE_PT_BATTLE_START_GAME_M(BYTE *buffer, INT room_status)
 {
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
-	Stream->WriteInt32(room_type);
-	Stream->WriteInt64(start_time);
 	Stream->WriteInt32(room_status);
-	Stream->WriteInt32(side_in_game);
 
 	return Stream->GetLength();
 }

@@ -23,10 +23,7 @@ typedef enum BATTLE_PROTOCOL
 	*/
 	PT_BATTLE_START_GAME_M,
 	/*
-	INT							:		ROOM_TYPE
-	INT64						:		START_TIME
 	INT							:		ROOM_STATUS
-	INT							:		SIDE_IN_GAME
 	*/
 	PT_BATTLE_ARRANGE_WEAPON,
 	/*

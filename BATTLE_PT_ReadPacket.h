@@ -35,10 +35,7 @@ inline VOID READ_PT_BATTLE_START_GAME_M(BYTE *buffer, S_PT_BATTLE_START_GAME_M &
 	CStreamSP Stream;
 	Stream->SetBuffer(buffer);
 
-	Stream->ReadInt32(&parameter.ROOM_TYPE);
-	Stream->ReadInt64(&parameter.START_TIME);
 	Stream->ReadInt32(&parameter.ROOM_STATUS);
-	Stream->ReadInt32(&parameter.SIDE_IN_GAME);
 }
 
 inline VOID READ_PT_BATTLE_ARRANGE_WEAPON(BYTE *buffer, S_PT_BATTLE_ARRANGE_WEAPON &parameter)
